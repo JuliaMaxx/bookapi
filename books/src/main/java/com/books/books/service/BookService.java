@@ -29,6 +29,9 @@ public class BookService {
     }
 
     public Book rateBook(Long id, int rating) {
+        if (rating < 1 || rating > 5) {
+            throw new IllegalArgumentException("Rating must be between 1 and 5.");
+        }
         Book book = bookRepository.findById(id).orElseThrow();
         book.setRating(rating);
         bookRepository.save(book);

@@ -92,4 +92,14 @@ public class BookServiceTest {
         Mockito.verify(bookRepository).save(bookToRate);
     }
 
+    @Test
+    public void testRateBookWrong() {
+        // Arrange
+        Book bookToRate = mockBooks.get(1);
+        bookToRate.setId(2L);
+        Mockito.when(bookRepository.findById(2L)).thenReturn(java.util.Optional.of(bookToRate));
+
+        // Act & Assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> bookService.rateBook(2L, 6));
+    }
 }
