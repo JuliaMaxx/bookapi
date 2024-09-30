@@ -15,13 +15,13 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public List<Book> filterBooks(String title, String author, Integer yeaer, Integer rating) {
+    public List<Book> filterBooks(String title, String author, Integer year, Integer rating) {
         if (title != null) {
             return bookRepository.findByTitleContaining(title);
         } else if (author != null) {
             return bookRepository.findByAuthor(author);
-        } else if (yeaer != null) {
-            return bookRepository.findByYear(yeaer);
+        } else if (year != null) {
+            return bookRepository.findByReleaseYear(year);
         } else if (rating != null) {
             return bookRepository.findByRating(rating);
         }

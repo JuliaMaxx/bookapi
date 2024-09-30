@@ -16,9 +16,9 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks(@RequestParam(required = false) String title,
                                   @RequestParam(required = false) String author,
-                                  @RequestParam(required = false) Integer year,
+                                  @RequestParam(required = false) Integer releaseYear,
                                   @RequestParam(required = false) Integer rating) {
-        return bookService.filterBooks(title, author, year, rating);
+        return bookService.filterBooks(title, author, releaseYear, rating);
     }
 
     @PostMapping("/{id}/rate")

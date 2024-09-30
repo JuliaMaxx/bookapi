@@ -37,7 +37,7 @@ public class BookServiceTest {
         Mockito.when(bookRepository.findAll()).thenReturn(mockBooks);
         Mockito.when(bookRepository.findByTitleContaining("IT")).thenReturn(Arrays.asList(mockBooks.get(0)));
         Mockito.when(bookRepository.findByAuthor("Stephen King")).thenReturn(Arrays.asList(mockBooks.get(0), mockBooks.get(3)));
-        Mockito.when(bookRepository.findByYear(1986)).thenReturn(Arrays.asList(mockBooks.get(0), mockBooks.get(1)));
+        Mockito.when(bookRepository.findByReleaseYear(1986)).thenReturn(Arrays.asList(mockBooks.get(0), mockBooks.get(1)));
         Mockito.when(bookRepository.findByRating(4)).thenReturn(Arrays.asList(mockBooks.get(1)));
     }
 
