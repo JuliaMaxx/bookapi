@@ -31,6 +31,7 @@ public class BookService {
     public Book rateBook(Long id, int rating) {
         Book book = bookRepository.findById(id).orElseThrow();
         book.setRating(rating);
-        return bookRepository.save(book);
+        bookRepository.save(book);
+        return book;
     }
 }
